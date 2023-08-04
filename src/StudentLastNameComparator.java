@@ -5,15 +5,15 @@ public class StudentLastNameComparator implements Comparator {
     public int compare(Object o1, Object o2) {
         Student student1 = (Student)o1;
         Student student2 = (Student)o2;
+        
+        if (student1 == null && student2 == null) {
+            return 0; // оба студента null, считаем их равными
+        } else if (student1 == null) {
+            return 1; // student1 null, считаем student1 > student2
+        } else if (student2 == null) {
+            return -1; // student2 null, считаем student1 < student2
+        }
 
-        String lastName1 = student1.getLastName();
-        String lastName2 = student2.getLastName();
-
-        if (lastName1.compareTo(lastName2) > 0) {
-            return 1;
-        } else if (lastName1.compareTo(lastName2) < 0) {
-            return -1;
-        } else
-            return 0;
+        return student1.getLastName().compareTo(student2.getLastName());
     }
 }

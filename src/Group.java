@@ -58,7 +58,9 @@ public class Group {
     public Student[] sortStudentsByLastName(Student[] students) {
         Arrays.sort(students, new StudentLastNameComparator());
         for (int i = 0; i < students.length; i++) {
-            System.out.println(students[i].toString());
+            if (students[i] != null) {
+                System.out.println(students[i].toString());
+            }
         }
         return students;
     }

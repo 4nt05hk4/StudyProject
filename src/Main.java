@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.Arrays;
 
 public class Main {
@@ -26,6 +27,7 @@ public class Main {
             e.printStackTrace();
         }
 
+        System.out.println();
         try {
             System.out.println(group1.searchStudentByLastName("Frolova"));
         } catch (StudentNotFoundException e) {
@@ -38,16 +40,22 @@ public class Main {
             e.printStackTrace();
         }
 
+        System.out.println();
         System.out.println(group1.removeStudentByID(11));
 
         System.out.println();
-        group1.sortStudentsByLastName(students);
+        group1.sortStudentsByLastName(group1.getStudents());
 
-        Group group2 = new Group();
-        try {
-            group2.addStudent(StudentConsoleReader.consoleReader());
-        } catch (GroupOverflowException e) {
-            e.printStackTrace();
-        }
+//        Group group2 = new Group();
+//        try {
+//            group2.addStudent(StudentConsoleReader.consoleReader());
+//        } catch (GroupOverflowException e) {
+//            e.printStackTrace();
+//        }
+
+        GroupFileStorage gfs = new GroupFileStorage();
+        File file = new File("");
+        gfs.saveGroupToCSV(group1, file);
+
     }
 }
