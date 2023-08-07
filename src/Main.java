@@ -4,6 +4,7 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         Group group1 = new Group();
+        group1.setGroupName("group1");
         Student student = new Student("Anton", "Fomenko", Gender.MALE, 1, "group1");
         Student student1 = new Student("Dmitriy", "Sternenko", Gender.MALE, 2, "group1");
         Student student2 = new Student("Oksana", "Frolova", Gender.FEMALE, 3, "group1");
@@ -26,25 +27,25 @@ public class Main {
         } catch (GroupOverflowException e) {
             e.printStackTrace();
         }
-
-        System.out.println();
-        try {
-            System.out.println(group1.searchStudentByLastName("Frolova"));
-        } catch (StudentNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            System.out.println(group1.searchStudentByLastName("Pavlov"));
-        } catch (StudentNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println();
-        System.out.println(group1.removeStudentByID(11));
-
-        System.out.println();
-        group1.sortStudentsByLastName(group1.getStudents());
+//
+//        System.out.println();
+//        try {
+//            System.out.println(group1.searchStudentByLastName("Frolova"));
+//        } catch (StudentNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            System.out.println(group1.searchStudentByLastName("Pavlov"));
+//        } catch (StudentNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//
+//        System.out.println();
+//        System.out.println(group1.removeStudentByID(11));
+//
+//        System.out.println();
+//        group1.sortStudentsByLastName(group1.getStudents());
 
 //        Group group2 = new Group();
 //        try {
@@ -53,9 +54,12 @@ public class Main {
 //            e.printStackTrace();
 //        }
 
-        GroupFileStorage gfs = new GroupFileStorage();
-        File file = new File("");
-        gfs.saveGroupToCSV(group1, file);
+//        GroupFileStorage.saveGroupToCSV(group1, "C:\\Users\\Gigabyte\\Desktop\\Java курс\\" + group1.getGroupName() + ".csv");
 
+//        System.out.println(GroupFileStorage.loadGroupFromCSV(new File("C:\\Users\\Gigabyte\\Desktop\\Java курс\\"
+//                                                                                + group1.getGroupName() + ".csv")).getGroupName());
+
+        File workFolder = new File("C:\\Users\\Gigabyte\\Desktop\\Java курс\\");
+        GroupFileStorage.findFileByGroupName(group1.getGroupName() + ".csv", workFolder);
     }
 }
