@@ -10,15 +10,14 @@ public class Main {
         Student student2 = new Student("Oksana", "Frolova", Gender.FEMALE, 3, "group1");
         Student student3 = new Student("Albert", "Vasnetsov", Gender.MALE, 4, "group1");
         Student student4 = new Student("Diana", "Konovalenko", Gender.FEMALE, 5, "group1");
-        Student student5 = new Student("Anatoliy", "Popovich", Gender.MALE, 6, "group1");
-        Student student6 = new Student("Irina", "Zaytseva", Gender.FEMALE, 7, "group1");
-        Student student7 = new Student("Jane", "Watson", Gender.MALE, 8, "group1");
-        Student student8 = new Student("Alex", "Sidorov", Gender.MALE, 9, "group1");
-        Student student9 = new Student("Igor", "Petrov", Gender.MALE, 10, "group1");
-        Student student10 = new Student("Egor", "Shapovalov", Gender.MALE, 11, "group1");
+//        Student student5 = new Student("Anatoliy", "Popovich", Gender.MALE, 6, "group1");
+//        Student student6 = new Student("Irina", "Zaytseva", Gender.FEMALE, 7, "group1");
+//        Student student7 = new Student("Jane", "Watson", Gender.MALE, 8, "group1");
+//        Student student8 = new Student("Alex", "Sidorov", Gender.MALE, 9, "group1");
+//        Student student9 = new Student("Igor", "Petrov", Gender.MALE, 10, "group1");
+//        Student student10 = new Student("Egor", "Shapovalov", Gender.MALE, 11, "group1");
 
-        Student[] students = new Student[] {student, student1, student2, student3, student4, student5,
-                                            student6, student7, student8, student9, student10};
+        Student[] students = new Student[] {student, student1, student2, student3, student4,};
 
         try {
             for(int i = 0; i < students.length; i++) {
@@ -54,12 +53,14 @@ public class Main {
 //            e.printStackTrace();
 //        }
 
-//        GroupFileStorage.saveGroupToCSV(group1, "C:\\Users\\Gigabyte\\Desktop\\Java курс\\" + group1.getGroupName() + ".csv");
+        GroupFileStorage.saveGroupToCSV(group1, "C:\\Users\\Gigabyte\\Desktop\\JAVA\\" + group1.getGroupName() + ".csv");
 
-//        System.out.println(GroupFileStorage.loadGroupFromCSV(new File("C:\\Users\\Gigabyte\\Desktop\\Java курс\\"
-//                                                                                + group1.getGroupName() + ".csv")).getGroupName());
+        System.out.println(GroupFileStorage.loadGroupFromCSV(new File("C:\\Users\\Gigabyte\\Desktop\\JAVA\\"
+                + group1.getGroupName() + ".csv")).getGroupName());
 
-        File workFolder = new File("C:\\Users\\Gigabyte\\Desktop\\Java курс\\");
-        GroupFileStorage.findFileByGroupName(group1.getGroupName() + ".csv", workFolder);
+//        File workFolder = new File("C:\\Users\\Gigabyte\\Desktop\\JAVA\\");
+//        GroupFileStorage.findFileByGroupName(group1.getGroupName() + ".csv", workFolder);
+
+        System.out.println(group1.ifGroupHasClone(student));
     }
 }

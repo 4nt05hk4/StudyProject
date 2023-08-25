@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Student extends Human {
     private int recordID;
     private String groupName;
@@ -31,5 +33,19 @@ public class Student extends Human {
     public String toString() {
         return "Student {" + "name " + getName() + ", lastName " + getLastName() + ", gender " + getGender() +
                 ", recordID: " + recordID + ", groupName: " + groupName + '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Student student = (Student) o;
+        return recordID == student.recordID && Objects.equals(groupName, student.groupName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), recordID, groupName);
     }
 }

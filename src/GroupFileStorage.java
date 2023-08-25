@@ -11,11 +11,13 @@ public class GroupFileStorage {
             String del = ",";
             Student[] students = gr.getStudents();
             for (int i = 0; i < students.length; i++) {
-                if (students[i].getGender() == Gender.MALE) {
-                    pw.println(students[i].getName() + del + students[i].getLastName() + del + "MALE" + del + students[i].getRecordID() + del + students[i].getGroupName());
-                } else {
-                    pw.println(students[i].getName() + del + students[i].getLastName() + del + "FEMALE" + del + students[i].getRecordID() + del + students[i].getGroupName());
-                }
+                if (students[i] != null) {
+                    if (students[i].getGender() == Gender.MALE) {
+                        pw.println(students[i].getName() + del + students[i].getLastName() + del + "MALE" + del + students[i].getRecordID() + del + students[i].getGroupName());
+                    } else {
+                        pw.println(students[i].getName() + del + students[i].getLastName() + del + "FEMALE" + del + students[i].getRecordID() + del + students[i].getGroupName());
+                    }
+                } else continue;
             }
         } catch (IOException e) {
             e.printStackTrace();

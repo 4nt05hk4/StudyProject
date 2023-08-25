@@ -55,13 +55,37 @@ public class Group {
         return false;
     }
 
-    public Student[] sortStudentsByLastName(Student[] students) {
-        Arrays.sort(students, new StudentLastNameComparator());
+    public Student[] sortStudentsByLastName() {
+        Arrays.sort(this.students, new StudentLastNameComparator());
         for (int i = 0; i < students.length; i++) {
             if (students[i] != null) {
                 System.out.println(students[i].toString());
             }
         }
         return students;
+    }
+
+    public boolean ifGroupHasClone (Student student) {
+        for (int i = 0; i < this.students.length; i++) {
+            if (student.equals(this.students[i])) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Group group = (Group) o;
+        return Objects.equals(groupName, group.groupName) && Arrays.equals(students, group.students);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(groupName);
+        result = 31 * result + Arrays.hashCode(students);
+        return result;
     }
 }
